@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="mikielis_negotiation_content_customer_email_template" label="Price negotiation template (customer)" file="notification.html" type="html" module="Mikielis_PriceNegotiation" area="frontend"/>
+</config>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mikielis_price_negotiations" resource="default" engine="innodb" comment="Price negotiation offers">
+        <column xsi:type="int" name="offer_id" identity="true" nullable="false" unsigned="false" />
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+        <column xsi:type="int" name="product_id" nullable="false" />
+        <column xsi:type="varchar" name="name" length="200" nullable="false" />
+        <column xsi:type="varchar" name="email" length="80" nullable="false" />
+        <column xsi:type="varchar" name="phone" length="25" nullable="false" />
+        <column xsi:type="float" name="price" nullable="false" />
+        <column xsi:type="varchar" length="5" name="currency" nullable="false" />
+        <column xsi:type="int" name="quantity" padding="10" nullable="false" />
+        <column xsi:type="text" name="message" nullable="false" />
+        <column xsi:type="datetime" name="datetime" nullable="false" />
+        <column xsi:type="tinyint" name="admin_notification" />
+        <column xsi:type="varchar" name="status" length="15" />
+        <column xsi:type="datetime" name="status_datetime" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="offer_id" />
+        </constraint>
+        <index referenceId="MIKIELIS_PRICE_NEGOTIATION_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>

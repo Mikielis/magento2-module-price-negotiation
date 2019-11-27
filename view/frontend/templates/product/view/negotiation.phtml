@@ -1,0 +1,69 @@
+<?php if ($block->isModuleEnabled() === true): ?>
+    <a data-role="negotiate" class="action negotiate-price" id="price-negotiation-button">
+        <span><?= __('Negotiate Price') ?></span>
+    </a>
+
+    <div id="price-negotiation" class="negotiate-price form-container">
+        <form class="form contact"
+              action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+              id="contact-form"
+              method="post"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= __('Negotiate Price') ?></span></legend><br />
+                <div class="field name required">
+                    <div class="control">
+                        <input name="name" id="name" placeholder="<?= $block->escapeHtml(__('Name')) ?> *" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                    </div>
+                </div>
+                <div class="field email required">
+                    <div class="control">
+                        <input name="email" id="email" placeholder="<?= $block->escapeHtml(__('Email')) ?> *" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                    </div>
+                </div>
+                <div class="field phone">
+                    <div class="control">
+                        <input name="phone" id="phone" placeholder="<?= $block->escapeHtml(__('Phone Number')) ?>" title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>" class="input-text" type="text" />
+                    </div>
+                </div>
+                <div class="field requested-price required">
+                    <div class="control">
+                        <input name="requested_price" id="requested-price" placeholder="<?= $block->escapeHtml(__('Requested Price')) ?> *" title="<?= $block->escapeHtmlAttr(__('Requested Price')) ?>" class="input-text" type="number" step="0.01" data-validate="{required:true}" />
+                    </div>
+                </div>
+                <div class="field quantity required">
+                    <div class="control">
+                        <input name="quantity" id="quantity" placeholder="<?= $block->escapeHtml(__('Quantity')) ?> *" title="<?= $block->escapeHtmlAttr(__('Quantity')) ?>" class="input-text" type="number" data-validate="{required:true}" />
+                    </div>
+                </div>
+                <div class="field message">
+                    <div class="control">
+                        <textarea name="message" id="message" placeholder="<?= $block->escapeHtml(__('Message')) ?>" title="<?= $block->escapeHtmlAttr(__('Message')) ?>" class="input-text" cols="5" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <input type="hidden" name="hideit" id="hideit" value="" />
+                    <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                        <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                    </button>
+                </div>
+            </div>
+
+            <input type="hidden" name="product_id" value="<?= $block->getProductId(); ?>" data-validate="{required:true}" />
+            <input type="hidden" name="url" value="<?= $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) ?>" />
+        </form>
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "#price-negotiation-button": {
+                "mikielisNegotiation": {
+                    "form": "#price-negotiation"
+                }
+            }
+        }
+    </script>
+<?php endif ?>

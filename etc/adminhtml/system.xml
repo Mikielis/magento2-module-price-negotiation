@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mikielis" translate="label" sortOrder="10">
+            <label>Mikielis</label>
+        </tab>
+        <section id="mikielis_negotiation" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Price Negotiation</label>
+            <tab>mikielis</tab>
+            <resource>Mikielis_PriceNegotiation::config_negotiation</resource>
+            <group id="functional" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Functional Settings</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="content" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Content</label>
+                <depends>
+                    <field id="mikielis_negotiation/functional/enable">1</field>
+                </depends>
+                <group id="admin_email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin email</label>
+                    <field id="email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>E-mail address</label>
+                        <validate>required-entry validate-email</validate>
+                    </field>
+                    <field id="subject" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Subject</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="message" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Message</label>
+                        <validate>required-entry</validate>
+                    </field>
+                </group>
+                <group id="customer_email" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer email</label>
+                    <field id="subject" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Subject</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="message" translate="label" type="textarea" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Message</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <group id="refuse" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Refusal email</label>
+                        <field id="subject" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Subject</label>
+                            <validate>required-entry</validate>
+                        </field>
+                        <field id="message" translate="label" type="textarea" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Message</label>
+                            <validate>required-entry</validate>
+                        </field>
+                    </group>
+                    <field id="template" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Template</label>
+                        <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

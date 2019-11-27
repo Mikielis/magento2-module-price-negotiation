@@ -1,0 +1,30 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mikielis_negotiation>
+            <functional>
+                <enable>0</enable>
+            </functional>
+            <content>
+                <admin_email>
+                    <subject>Received negotiation offer</subject>
+                    <email>test@example.co.uk</email>
+                    <message><![CDATA[You have received a new negotiation offer.<br />Here are the details:]]></message>
+                    <template>Price negotiation template (admin)</template>
+                </admin_email>
+                <customer_email>
+                    <subject>Thank you for your interest in our products</subject>
+                    <message>
+                        <![CDATA[We would like to confirm that we received your negotiation offer.<br />A sales representative will contact you shortly.<br /><br />Best regards<br />Admin]]>
+                    </message>
+                    <refuse>
+                        <subject>We're sorry to tell you that your negotiation offer cannot be accepted</subject>
+                        <message>
+                            <![CDATA[Thank you for the email regarding your negotiation offer.<br />Unfortunately, we cannot accept your proposal at the moment.<br />Please, contact us directly if you want to renegotiate your proposal.<br /><br />Best regards<br />Admin]]>
+                        </message>
+                    </refuse>
+                    <template>Price negotiation template (customer)</template>
+                </customer_email>
+            </content>
+        </mikielis_negotiation>
+    </default>
+</config>

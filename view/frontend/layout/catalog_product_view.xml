@@ -1,0 +1,7 @@
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.addto">
+            <block ifconfig="mikielis_negotiation/functional/enable" class="Mikielis\PriceNegotiation\Block\Product\View" name="product.info.price.negotiation" template="Mikielis_PriceNegotiation::product/view/negotiation.phtml" after="-"/>
+        </referenceBlock>
+    </body>
+</page>

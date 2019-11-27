@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mikielis_PriceNegotiation::negotiations" title="Negotiations" module="Mikielis_PriceNegotiation" sortOrder="50" resource="Mikielis_PriceNegotiation::offers"/>
+        <add id="Mikielis_PriceNegotiation::offers" title="Negotiation offers" module="Mikielis_PriceNegotiation" sortOrder="10" action="mikielis_pricenegotiation/offers" resource="Mikielis_PriceNegotiation::offers" parent="Mikielis_PriceNegotiation::negotiations"/>
+        <add id="Mikielis_PriceNegotiation::module_settings" title="Module settings" module="Mikielis_PriceNegotiation" sortOrder="20" action="admin/system_config/edit/section/mikielis_negotiation/" resource="Mikielis_PriceNegotiation::config_negotiation" parent="Mikielis_PriceNegotiation::negotiations"/>
+    </menu>
+</config>

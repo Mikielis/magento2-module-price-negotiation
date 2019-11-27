@@ -1,0 +1,54 @@
+
+<div class="section">
+    <h2><?= __('Contact details') ?></h2>
+    <table>
+        <tr>
+            <th><?= __('Name') ?></th>
+            <td><?= $block->escapeHtml($block->getNegotiation()->getName()); ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Email') ?></th>
+            <td><a href="mailto:<?= $block->escapeHtml($block->getNegotiation()->getEmail()); ?>"><?= $block->escapeHtml($block->getNegotiation()->getEmail()); ?></a></td>
+        </tr>
+        <tr>
+            <th><?= __('Phone') ?></th>
+            <td><a href="tel:<?= $block->escapeHtml($block->getNegotiation()->getPhone()); ?>"><?= $block->escapeHtml($block->getNegotiation()->getPhone()); ?></a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2><?= __('Offer') ?></h2>
+    <table>
+        <tr>
+            <th><?= __('Product') ?></th>
+            <td>
+                <a href="<?= $block->escapeUrl($block->getUrl('catalog/product/edit', ['id' => $block->getProduct()->getId()])) ?>"><?= $block->escapeHtml($block->getProduct()->getName()); ?></a></td>
+        </tr>
+        <tr>
+            <th><?= __('Price') ?></th>
+            <td><?= $block->getNegotiation()->getPrice(); ?> <?= $block->getNegotiation()->getCurrency(); ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Quantity') ?></th>
+            <td><?= $block->escapeHtml($block->getNegotiation()->getQuantity()); ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Store') ?></th>
+            <td><?= $block->getStore('website') ?> > <?= $block->getStore('store') ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Date') ?></th>
+            <td><?= $block->getNegotiation()->getDatetime(); ?></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2><?= __('Message') ?></h2>
+    <p><?= $block->escapeHtml($block->escapeHtml($block->getNegotiation()->getMessage())); ?></p>
+</div>
+
+<?php if ($block->isRejected()): ?>
+    <p class="rejected"><?= __('Rejected') ?></p>
+<?php endif ?>

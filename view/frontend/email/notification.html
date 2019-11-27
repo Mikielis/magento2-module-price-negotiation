@@ -1,0 +1,46 @@
+{{template config_path="design/email/header_template"}}
+
+<!--@subject {{var subject|raw }}@-->
+
+{{inlinecss file="css/email.css"}}
+
+<p style="margin-top: 20px; margin-bottom: 30px">{{var email_text|raw}}</p>
+
+{{if name}}
+    <table class="data">
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Name" }}:</th>
+            <td>{{var name|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Email" }}:</th>
+            <td>{{var email|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Phone" }}:</th>
+            <td>{{var phone|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Price" }}:</th>
+            <td>{{var requested_price|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Currency" }}:</th>
+            <td>{{var currency|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Quantity" }}:</th>
+            <td>{{var quantity|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Message" }}:</th>
+            <td>{{var message|raw}}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; padding-right: 5px;">{{trans "Product URL" }}:</th>
+            <td>{{var url|raw}}</td>
+        </tr>
+    </table>
+{{/if}}
+
+{{template config_path="design/email/footer_template"}}
