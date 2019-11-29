@@ -6,7 +6,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Mikielis_Contact::config_negotiation" title="Price Negotiation Settings" />
+                            <resource id="Mikielis_PriceNegotiation::config_negotiation" title="Price Negotiation Settings" />
                         </resource>
                     </resource>
                 </resource>
